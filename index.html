@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<title>Python CAPTCHA Generator</title>
+<style>
+    body {
+        font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        background: linear-gradient(135deg, #74ebd5, #ACB6E5);
+        height: 100vh;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+    }
+
+    .container {
+        background: #ffffff;
+        padding: 40px 30px;
+        border-radius: 15px;
+        box-shadow: 0 8px 16px rgba(0,0,0,0.15);
+        text-align: center;
+        width: 350px;
+    }
+
+    h2 {
+        margin-bottom: 20px;
+        font-size: 26px;
+        color: #333333;
+    }
+
+    img {
+        margin-bottom: 15px;
+        border-radius: 8px;
+        box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+    }
+
+    input {
+        padding: 12px;
+        width: 100%;
+        margin-top: 10px;
+        margin-bottom: 15px;
+        border-radius: 8px;
+        border: 1px solid #cccccc;
+        font-size: 16px;
+        transition: border-color 0.3s;
+    }
+
+    input:focus {
+        border-color: #74ebd5;
+        outline: none;
+    }
+
+    button {
+        padding: 12px 20px;
+        background-color: #74ebd5;
+        color: white;
+        border: none;
+        border-radius: 8px;
+        font-size: 16px;
+        cursor: pointer;
+        transition: background-color 0.3s, transform 0.2s;
+        width: 100%;
+    }
+
+    button:hover {
+        background-color: #4bb7b2;
+        transform: translateY(-2px);
+    }
+
+    button:active {
+        transform: translateY(0);
+    }
+</style>
+</head>
+<body>
+
+<div class="container">
+    <h2>Simple CAPTCHA Generator</h2>
+    <img src="{{ url_for('captcha_image') }}" alt="CAPTCHA"><br>
+
+    <form method="POST" action="/verify">
+        <input type="text" name="captcha_input" placeholder="Enter CAPTCHA" required><br>
+        <button type="submit">Verify</button>
+    </form>
+</div>
+
+</body>
+</html>
